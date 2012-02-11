@@ -6,51 +6,65 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-�ȉ��ɒ�߂�����ɏ]���C�{�\�t�g�E�F�A����ъ֘A�����̃t�@�C���i�ȉ��u�\�t�g�E�F�A�v�j�̕������擾���邷�ׂĂ̐l�ɑ΂��A�\�t�g�E�F�A�𖳐����Ɉ������Ƃ𖳏��ŋ����܂��B����ɂ́A�\�t�g�E�F�A�̕������g�p�A���ʁA�ύX�A�����A�f�ځA�Еz�A�T�u���C�Z���X�A�����/�܂��͔̔����錠���A����у\�t�g�E�F�A��񋟂��鑊��ɓ������Ƃ������錠�����������Ɋ܂܂�܂��B
+以下に定める条件に従い，本ソフトウェアおよび関連文書のファイル（以下「ソフトウェア」）の複製を取得するすべての人に対し、ソフトウェアを無制限に扱うことを無償で許可します。これには、ソフトウェアの複製を使用、複写、変更、結合、掲載、頒布、サブライセンス、および/または販売する権利、およびソフトウェアを提供する相手に同じことを許可する権利も無制限に含まれます。
 
-��L�̒��쌠�\������і{�����\�����A�\�t�g�E�F�A�̂��ׂĂ̕����܂��͏d�v�ȕ����ɋL�ڂ�����̂Ƃ��܂��B
+上記の著作権表示および本許諾表示を、ソフトウェアのすべての複製または重要な部分に記載するものとします。
 
-�\�t�g�E�F�A�́u����̂܂܁v�ŁA�����ł��邩�Öقł��邩���킸�A����̕ۏ؂��Ȃ��񋟂���܂��B�����ł����ۏ؂Ƃ́A���i���A����̖ړI�ւ̓K�����A����ь�����N�Q�ɂ��Ă̕ۏ؂��܂݂܂����A����Ɍ��肳�����̂ł͂���܂���B ��҂܂��͒��쌠�҂́A�_��s�ׁA�s�@�s�ׁA�܂��͂���ȊO�ł��낤�ƁA�\�t�g�E�F�A�ɋN���܂��͊֘A���A���邢�̓\�t�g�E�F�A�̎g�p�܂��͂��̑��̈����ɂ���Đ������؂̐����A���Q�A���̑��̋`���ɂ��ĉ���̐ӔC������Ȃ����̂Ƃ��܂��B
+ソフトウェアは「現状のまま」で、明示であるか暗黙であるかを問わず、何らの保証もなく提供されます。ここでいう保証とは、商品性、特定の目的への適合性、および権利非侵害についての保証も含みますが、それに限定されるものではありません。 作者または著作権者は、契約行為、不法行為、またはそれ以外であろうと、ソフトウェアに起因または関連し、あるいはソフトウェアの使用またはその他の扱いによって生じる一切の請求、損害、その他の義務について何らの責任も負わないものとします。
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-[�ȒP�Ȑ���]
-�R�}���h���C�����rm���Ă��܂��Ă���u�����I�@���̃t�@�C���͏�������ʖڂȃ��c�������񂾁I�I�I�v�ƂȂ������͂������܂���ł��傤���B
-�C�t�������ɂ͂������ɓd�q�̑����ł��B���ꂪ�h�������̂ł��̃X�N���v�g�������܂����B
-�܂肱��͉����Ƃ����ƁArm����ƑΏۂ̃t�@�C���i�܂��̓f�B���N�g���j���S�~���f�B���N�g����mv�����Ƃ����X�N���v�g�ł��B
-������undo���o���܂��Bundo�R�}���h�����s����ƁA���߂�rm�����t�@�C���i�܂��̓f�B���N�g���j�𕜊������鎖���o���܂��B
-�i.Trash�f�B���N�g���Ƀt�@�C��/�t�H���_���������Aundo���鎖���o���܂��j
-���Ȃ݂ɁA�S�~���f�B���N�g���̓z�[���f�B���N�g���ȉ���~/.Trash�Ƃ��Ď�����������܂��B
-�C�ɂ���Ȃ��ꍇ�̓R�[�h��K�X���������ĉ������B
+[簡単な説明]
+shebangをお読みになればわかると思いますが、Perlで書かれています。
+Perl v5.12.4で動作確認済みです。極端に古いバージョンだと動かないかもしれません。
+また、Ubuntu 11.04とUbuntu 11.10でしか動作確認を行っていません。
+UNIX/Linux上であれば動くと思いますが、その他のOSではその限りではありません。
+
+[概要]
+コマンドライン上でrmしてしまってから「ああ！　あのファイルは消しちゃ駄目なヤツだったんだ！！！」となった事はございませんでしょうか。
+気付いた時にはもう既に電子の藻屑です。それが辛かったのでこのスクリプトを書きました。
+つまりこれは何かというと、rmすると対象のファイル（またはディレクトリ）がゴミ箱ディレクトリにmvされるというスクリプトです。
+加えてundoも出来ます。undoコマンドを実行すると、直近にrmしたファイル（またはディレクトリ）を復活させる事が出来ます。
+（.Trashディレクトリにファイル/フォルダがある限り、undoする事が出来ます）
+ちなみに、ゴミ箱ディレクトリはホームディレクトリ以下に~/.Trashとして自動生成されます。
+気にくわない場合はコードを適宜書き換えて下さい。
 
 e.g.
-				rm hoge					# hoge�t�@�C����~/.Trash�f�B���N�g���Ɉړ�����
-				undo						# ���߂�rm�����t�@�C���i�܂�hoge�j���������܂�
-				cleantrash			# ~/.Trash�f�B���N�g���̒��g����|����܂��B�i�܂�u�S�~������ɂ���v�j
+    $ rm hoge		# hogeファイルが~/.Trashディレクトリに移動する
+    $ undo		# 直近にrmしたファイル（つまりhoge）が復活します
+    $ cleantrash  # ~/.Trashディレクトリの中身が一掃されます。（つまり「ゴミ箱を空にする」）
 
-[�e�X�N���v�g�̐���]
-�Etrash.pl : �{�̂ł��B"./trash.pl hoge"�̂悤�Ɏg�p����ƁAhoge�t�@�C����"~/.Trash/YYYYMMDDhhmmss/"�f�B���N�g���ȉ��Ɉړ����܂��B
-�Eundo.pl : undo�o���܂��B
-�EcleanTrash.pl : �S�~���f�B���N�g���̒��g����ɂȂ�܂��B
+[各スクリプトの説明]
+・trash.pl : 本体です。"./trash.pl hoge"のように使用すると、hogeファイルが"~/.Trash/YYYYMMDDhhmmss/"ディレクトリ以下に移動します。
+・undo.pl : undo出来ます。
+・cleanTrash.pl : ゴミ箱ディレクトリの中身が空になります。
 
-[�g����]
-chmod 755 *.pl�Ȃǂ����s���āA�e�X�N���v�g�Ɏ��s������^���܂��傤�B
-�ŁA.bashrc�Ȃǂ�
+[使い方]
+$ chmod 755 *.plなどを実行して、各スクリプトに実行権限を与えましょう。
+で、.bashrcなどに
 alias rm='~/hoge/huga/trash.pl'
 alias undo='~/hoge/huga/undo.pl'
 alias clean='~/hoge/huga/cleanTrash.pl'
-�ȂǂƋL�q����Ɨ��p�\�ł��B
-�Ȃ��A�{����rm�𗘗p�������ꍇ��
-sudo rm hoge
-���g���Ɨǂ��悤�ł��B
+などと記述すると利用可能です。
+なお、本来のrmを利用したい場合は
+$ sudo rm hoge
+を使うと良いようです。
 
-[�⑫]
-�X�N���v�g���̃R�����g���ɁA���X��Ȃ��p�ꂪ�����܂����A���ꂪ�l�̉p��͂̌��E�ł��B
-���w�E�A�劽�}�ł��B
+[補足]
+スクリプト内のコメント文に、所々危ない英語が見られますが、これが僕の英語力の限界です。
+ご指摘、大歓迎です。
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 [Simple Description]
+This script is written by Perl.
+I verified operation on Perl 5 version 12, subversion 4 (v5.12.4).
+If you use very old version Perl, possibly this script can't execute certainly.
+And I only verified on Ubuntu 11.04 and Ubuntu 11.10.
+I think maybe it can execute on UNIX/Linux but in case of use other OS,
+it probabry can't operate.
+
+[Outline]
 These scripts implement trash box on command line.
 When execute rm command, target file move to trash box directory.
 And this scripts can execute undo.
@@ -59,9 +73,9 @@ Incidentally, trash box directory is maked on home directory automatically.
 If you don't like it, please rewrite script code.
 
 e.g.
-				rm foo					# file of foo move to trash directory.
-				undo						# revive file(s).
-				cleantrash			# clean trash directory up.
+	$ rm foo		# file of foo move to trash directory.
+	$ undo		    # revive file(s).
+    $ cleantrash	# clean trash directory up.
 
 [Description of each scripts]
 1. trash.pl : This script is core. For example, executing like "./trash.pl foo" when file of foo move to "~/.Trash/YYYYMMDDhhmmss/" directory.
@@ -69,14 +83,14 @@ e.g.
 3. cleanTrash.pl : This script can clean trash box directory up.
 
 [Usege]
-Please execute "chmod 755 *.pl" to get permission.
+Please execute "$ chmod 755 *.pl" to get permission.
 And write into .bashrc, for example:
 alias rm='~/hoge/huga/trash.pl'
 alias undo='~/hoge/huga/undo.pl'
 alias clean='~/hoge/huga/cleanTrash.pl'
 then these scripts are available.
 By the way, if you wanna use original rm,
-please type "sudo rm foo".
+please type "$ sudo rm foo".
 
 [Supplementary]
 As you can see, my English is broken.

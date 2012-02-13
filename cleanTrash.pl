@@ -30,3 +30,5 @@ my @trashDirectoryList = glob $trashDirectory."*";
 foreach( @trashDirectoryList ){
     rmtree $_;
 }
+
+say "Succeeded."

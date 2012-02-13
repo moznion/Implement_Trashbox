@@ -73,8 +73,8 @@ Incidentally, trash box directory is maked on home directory automatically.
 If you don't like it, please rewrite script code.
 
 e.g.
-	$ rm foo		# file of foo move to trash directory.
-	$ undo		    # revive file(s).
+    $ rm foo		# file of foo move to trash directory.
+    $ undo		    # revive file(s).
     $ cleantrash	# clean trash directory up.
 
 [Description of each scripts]

@@ -134,6 +134,7 @@ sub undoAll{
 sub undoSpec{
 	#All files in trash box directory are revived.
 	foreach my $_directory( @ARGV ){
+		$_directory =~ s/\/$//;
 		my $pathFileLocation = " <".$_directory."/.PATH";
 		unless( open PATH, $pathFileLocation ){
 			die "Cannot open .PATH file: $!\n";

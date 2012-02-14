@@ -5,18 +5,19 @@ use warnings;
 use 5.010;
 use File::Path;
 
-print "Empty the trash box? [y/n] : ";
-while(1){
-    chomp( my $switch = <STDIN> );
-    if( $switch =~ /^[nN]$/ ){
-        exit;
-    }elsif( $switch =~ /^[yY]$/ ){
-        last;
-    }else{
-        print "Please input 'y' or 'n' : "
+if( scalar @ARGV == 0  or !( $ARGV[0] eq "-y" )  ){
+    print "Empty the trash box? [y/n] : ";
+    while(1){
+        chomp( my $switch = <STDIN> );
+        if( $switch =~ /^[nN]$/ ){
+            exit;
+        }elsif( $switch =~ /^[yY]$/ ){
+            last;
+        }else{
+            print "Please input 'y' or 'n' : "
+        }
     }
 }
-
 #Set Trash directory path
 my $homeDirectory = $ENV{"HOME"};
 my $trashDirectory = $homeDirectory . "/.Trash/";
